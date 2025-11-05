@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Tabela de Resultados</title>
+    <link rel="stylesheet" href="../static/css/tabela.css">
+
+</head>
+<body>
+    <h2 style="text-align: center;">Resultados da Tabela</h2>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Sexo</th>
+            <th>Data de Nascimento</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Endereço</th>
+        </tr>
+        {% for pessoa in dados %}
+            <tr>
+                {% for celula in pessoa %}
+                    <td>{{ celula }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+        </tr>
+    </table>
+
+    <!-- <div class="box">
+        <form id="formulario" action="/tabela" method="post">
+            <fieldset>
+                <legend><b>Formulário de Contato</b></legend>
+
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelinput">Nome Completo</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelinput">Email</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <label for="telefone" class="labelinput">Telefone</label>
+                </div>
+
+                <p>Sexo:</p>
+                <label><input type="radio" name="genero" value="Feminino" required> Feminino</label><br>
+                <label><input type="radio" name="genero" value="Masculino" required> Masculino</label><br>
+                <label><input type="radio" name="genero" value="Outro" required> Outro</label>
+
+                <br><br>
+                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+                <input type="date" name="data_nascimento" id="data_nascimento" required>
+
+                <div class="inputBox">
+                    <input type="text" name="cidade" id="cidade" class="inputUser" required>
+                    <label for="cidade" class="labelinput">Cidade</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="estado" id="estado" class="inputUser" required>
+                    <label for="estado" class="labelinput">Estado</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
+                    <label for="endereco" class="labelinput">Endereço</label>
+                </div>
+
+                <input type="submit" id="submit" value="Enviar">
+            </fieldset>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('formulario');
+        const resultado = document.getElementById('resultado');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            const dados = new FormData(form);
+            const genero = form.querySelector('input[name="genero"]:checked').value;
+
+            resultado.innerHTML = `
+                <h3>Dados Enviados:</h3>
+                <table>
+                    <tr><th>Campo</th><th>Valor</th></tr>
+                    <tr><td>nome</td><td>${dados.get('nome')}</td></tr>
+                    <tr><td>email</td><td>${dados.get('email')}</td></tr>
+                    <tr><td>telefone</td><td>${dados.get('telefone')}</td></tr>
+                    <tr><td>genero</td><td>${genero}</td></tr>
+                    <tr><td>data de nascimento</td><td>${dados.get('data_nascimento')}</td></tr>
+                    <tr><td>cidade</td><td>${dados.get('cidade')}</td></tr>
+                    <tr><td>estado</td><td>${dados.get('estado')}</td></tr>
+                    <tr><td>endereço</td><td>${dados.get('endereco')}</td></tr>
+                </table>
+            `;
+        });
+    </script> -->
+
+</body>
+</html>
