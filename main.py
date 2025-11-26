@@ -29,11 +29,13 @@ def processar_formulario():
     sexo = request.form.get('genero')
     cidade = request.form.get('cidade')
     estado = request.form.get('estado')
-    endereco = request.form.get('endereço')
+    endereco = request.form.get('endereco')
+    data_nascimento = request.form.get('data_nascimento')
+
 
     with open(csv_file, 'a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow([nome, email, telefone, sexo, cidade, estado, endereco])
+        writer.writerow([nome, email, telefone, sexo, data_nascimento, cidade, estado, endereco])
 
     return redirect(url_for('tabela')) 
 
@@ -56,8 +58,9 @@ def tabela():
 
 
 
-
-
+@app.route('/voltar', methods=['post'])
+def voltar():
+    return render_template('forms_limo.html')
 
 
 if __name__ == '__main__':
